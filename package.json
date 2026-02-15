@@ -8,7 +8,10 @@
     "start": "next start",
     "format": "biome format . --write",
     "lint": "biome lint .",
-    "check": "biome check ."
+    "check": "biome check .",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish"
   },
   "dependencies": {
     "next": "16.1.6",
@@ -17,6 +20,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
+    "@changesets/cli": "^2.29.8",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
