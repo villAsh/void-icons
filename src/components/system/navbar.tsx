@@ -1,13 +1,12 @@
 "use client";
-
-import Logo from "./logo";
 import { Github } from "lucide-react";
 import { motion } from "motion/react";
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Logo from "./logo";
 
 const Navbar = () => {
-  const location = useRouter();
+  const path = usePathname();
 
   const links = [
     { to: "/", label: "Home" },
@@ -15,22 +14,18 @@ const Navbar = () => {
   ];
 
   return (
-    <motion.nav className="sticky top-0 left-0 right-0 z-50 glass h-[80px] flex justify-center items-center border-b-[1px]!  d border-neutral-300!">
+    <motion.nav className="sticky top-0 left-0 right-0 z-50  h-[70px] bg-transparent flex justify-center items-center">
       <div className="max-w-7xl px-6 h-16 flex items-center justify-between w-full">
         <Link href={"/"} className="flex items-center gap-2.5">
           <Logo />
         </Link>
-
-        {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
             <Link
               key={link.to}
               href={link.to}
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                location.pathname === link.to
-                  ? "text-primary"
-                  : "text-muted-foreground"
+              className={`text-base font-[550] transition-colors hover:text-primary ${
+                path === link.to ? "text-primary" : "text-neutral-600"
               }`}
             >
               {link.label}
