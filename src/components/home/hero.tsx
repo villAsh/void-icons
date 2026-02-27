@@ -3,19 +3,8 @@
 import { motion, Variants } from "motion/react";
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
-import { BrandOfSacrifice, EclipseEye, VoidRune, ShatteredHex } from "./brands";
 
 export const Hero = () => {
-  const SCATTERED_ICONS: Array<{ icon: React.ElementType<any>; top?: string; left?: string; right?: string; bottom?: string; delay: number }> = [
-    { icon: BrandOfSacrifice, top: "15%", left: "10%", delay: 0 },
-    { icon: EclipseEye, top: "25%", right: "15%", delay: 0.2 },
-    { icon: VoidRune, bottom: "20%", left: "15%", delay: 0.4 },
-    { icon: ShatteredHex, bottom: "30%", right: "10%", delay: 0.6 },
-    { icon: BrandOfSacrifice, top: "40%", left: "5%", delay: 0.8 },
-    { icon: EclipseEye, top: "10%", right: "25%", delay: 1 },
-    { icon: VoidRune, bottom: "10%", right: "25%", delay: 1.2 },
-    { icon: ShatteredHex, bottom: "40%", left: "25%", delay: 1.4 },
-  ];
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -35,48 +24,15 @@ export const Hero = () => {
       filter: "blur(0px)",
       transition: {
         duration: 1.2,
-        ease: [0.16, 1, 0.3, 1], // Custom Awwwards-style smooth easing
+        ease: [0.16, 1, 0.3, 1],
       },
     },
   };
 
   return (
-    <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden min-h-[90vh] flex flex-col justify-center bg-white dark:bg-black">
-      {/* Subtle modern grid overlay - monochromatic */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none z-0" />
-      
-      {/* Scattered background icons - precise & technical */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        {SCATTERED_ICONS.map((item, i) => {
-          const Icon = item.icon;
-          return (
-            <motion.div
-              key={i}
-              className="absolute text-foreground/[0.04] pointer-events-auto cursor-pointer transition-all duration-500 hover:text-foreground/80 dark:text-white/[0.03] dark:hover:text-white/80"
-              style={{
-                top: item.top,
-                left: item.left,
-                right: item.right,
-                bottom: item.bottom,
-              }}
-              animate={{
-                y: [0, -40, 0],
-                rotate: [0, 15, -15, 0],
-              }}
-              transition={{
-                duration: 10 + i * 2,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: "easeInOut",
-              }}
-            >
-              <Icon size={48} strokeWidth={1.5} initial="hidden" animate="visible" />
-            </motion.div>
-          );
-        })}
-      </div>
+    <section className="relative w-full min-h-[calc(100dvh)]  flex flex-col justify-center items-center overflow-hidden bg-white dark:bg-black">
+      <div className="absolute top-0 inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none z-0" />
 
-      {/* Deep contrast gradient at top/bottom edges to fade grid */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white pointer-events-none dark:from-black dark:to-black opacity-80 z-0" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
@@ -97,9 +53,9 @@ export const Hero = () => {
             variants={itemVariants}
             className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-[-0.04em] mb-8 text-black dark:text-white leading-[1.05]"
           >
-            Interfaces that <br className="hidden md:block" />
+            Lucide icons <br className="hidden md:block" />
             <span className="text-black/40 dark:text-white/40">
-              live & breathe.
+             Now in motion
             </span>
           </motion.h1>
 
@@ -107,7 +63,7 @@ export const Hero = () => {
             variants={itemVariants}
             className="text-lg md:text-xl text-black/60 dark:text-white/60 mb-14 max-w-2xl leading-relaxed font-normal mx-auto"
           >
-            A meticulously crafted collection of SVG icons. Powered by advanced physics, built for engineers who obsess over micro-interactions.
+           Drop-in animated wrappers for Lucide icons, built with Framer Motion and designed for modern React apps.
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center">

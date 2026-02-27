@@ -14,7 +14,7 @@ const Navbar = () => {
   ];
 
   return (
-    <motion.nav className="sticky top-0 left-0 right-0 z-50  h-[70px] bg-transparent flex justify-center items-center">
+    <motion.nav className="fixed top-0 left-0 right-0 z-50 h-[70px] bg-background/50 backdrop-blur-md border-b border-white/5 dark:border-white/5 flex justify-center items-center">
       <div className="max-w-7xl px-6 h-16 flex items-center justify-between w-full">
         <Link href={"/"} className="flex items-center gap-2.5">
           <Logo />
