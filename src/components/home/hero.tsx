@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { GridWrapper } from "../system/grid-wrapper";
 import AnimatedGridLines from "../system/animated-grid-lines";
+import { Button } from "../ui/button";
 
 export const Hero = () => {
   const containerVariants: Variants = {
@@ -80,28 +81,27 @@ export const Hero = () => {
             variants={itemVariants}
             className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center z-50"
           >
-            <Link
+            <Button
               href="/icons"
-              className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-black dark:bg-white text-white dark:text-black font-medium rounded-[12px] overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98] shadow-[0_4px_14px_0_rgb(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] w-full sm:w-auto text-[15px]"
+              variant="void"
+              size="void"
+              withHoverSweep
             >
-              <div className="absolute inset-0 bg-white/20 dark:bg-black/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-              <span className="relative z-10 flex items-center gap-2">
-                Browse Collection
-                <ArrowRight
-                  size={18}
-                  className="group-hover:translate-x-1 transition-transform duration-300 ease-out opacity-70"
-                />
-              </span>
-            </Link>
+              Browse Collection
+              <ArrowRight
+                size={18}
+                className="group-hover:translate-x-1 transition-transform duration-300 ease-out opacity-70"
+              />
+            </Button>
 
-            <a
+            <Button
               href="https://github.com/void-icons"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border border-black/10 text-black font-medium rounded-[12px] hover:bg-black/5 transition-all w-full sm:w-auto text-[15px] dark:border-white/10 dark:text-white dark:hover:bg-white/5"
+              variant="voidSecondary"
+              size="void"
+              withHoverSweep
             >
               Documentation
-            </a>
+            </Button>
           </motion.div>
         </motion.div>
       </div>
