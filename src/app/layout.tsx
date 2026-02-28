@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Hind } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/system/navbar";
-import { SmoothScrolling } from "@/components/smooth-scrolling";
+import { SmoothScrolling } from "@/components/system/smooth-scrolling";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const hindSans = Hind({
   variable: "--font-hind-sans",
@@ -12,7 +13,8 @@ const hindSans = Hind({
 
 export const metadata: Metadata = {
   title: "Void Icons - Beautiful Animated SVG Icons",
-  description: "A meticulously crafted collection of animated SVG icons built for modern React and Next.js applications.",
+  description:
+    "A meticulously crafted collection of animated SVG icons built for modern React and Next.js applications.",
 };
 
 export default function RootLayout({
@@ -21,12 +23,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${hindSans.variable} antialiased`}>
-        <SmoothScrolling>
-          <Navbar />
-          {children}
-        </SmoothScrolling>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SmoothScrolling>
+            <Navbar />
+            {children}
+          </SmoothScrolling>
+        </ThemeProvider>
       </body>
     </html>
   );

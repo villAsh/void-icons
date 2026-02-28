@@ -14,3 +14,20 @@ export const HeroHeading = () => {
     </motion.h1>
   );
 };
+
+export const ShowcaseHeading = () => {
+  return (
+    <div className="max-w-2xl">
+      <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-black dark:text-white">
+        Precision in every pixel <br />
+        <span className="text-black/40 dark:text-white/40">
+          Motion in every interaction.
+        </span>
+      </h2>
+      <p className="text-lg text-muted-foreground">
+        Built on a consistent 24x24 grid and enhanced with configurable motion,
+        Void Icons bring clarity and life to modern React interfaces.
+      </p>
+    </div>
+  );
+};
