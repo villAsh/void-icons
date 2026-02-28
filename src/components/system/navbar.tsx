@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Logo from "./logo";
+import { ThemeToggle } from "./theme-toggle";
 
 const Navbar = () => {
   const path = usePathname();
@@ -39,6 +40,7 @@ const Navbar = () => {
           >
             <Github size={20} />
           </a>
+          <ThemeToggle />
         </div>
       </div>
     </motion.nav>
