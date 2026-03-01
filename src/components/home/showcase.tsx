@@ -41,7 +41,6 @@ interface ShowcaseCardProps {
 }
 
 const ShowcaseCard = ({ item, index }: ShowcaseCardProps) => {
-  const [isHovered, setIsHovered] = useState(false);
   const IconComponent = item.icon;
 
   return (
@@ -57,31 +56,21 @@ const ShowcaseCard = ({ item, index }: ShowcaseCardProps) => {
         damping: 14,
       }}
       whileTap={{ scale: 0.97 }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
       className="group relative flex flex-col items-center justify-center p-8 bg-card border border-border/50 rounded-3xl hover:border-primary/40 transition-colors duration-300 shadow-sm hover:shadow-xl hover:shadow-primary/10 cursor-pointer overflow-hidden"
     >
       {/* Background glow on hover */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: isHovered ? 1 : 0 }}
+        animate={{ opacity: 0 }}
+        whileHover={{
+          opacity: 1,
+        }}
         transition={{ duration: 0.3 }}
         className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-primary/4 pointer-events-none rounded-3xl"
       />
 
-      {/* Subtle shimmer ring */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{
-          opacity: isHovered ? 0.4 : 0,
-          scale: isHovered ? 1 : 0.8,
-        }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-        className="absolute inset-4 rounded-2xl border border-primary/30 pointer-events-none"
-      />
-
       <div className="mb-4 text-foreground group-hover:text-primary transition-colors duration-300 relative z-10">
-        <IconComponent size={36} strokeWidth={1.5} isActive={isHovered} />
+        <IconComponent size={36} strokeWidth={1.5} />
       </div>
 
       <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300 relative z-10">

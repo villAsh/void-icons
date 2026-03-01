@@ -2,15 +2,13 @@
 
 import { motion } from "motion/react";
 import { features } from "@/lib/collections";
-import { useState } from "react";
 
 interface FeatureCardProps {
-  feature: typeof features[0];
+  feature: (typeof features)[0];
   index: number;
 }
 
 const FeatureCard = ({ feature, index }: FeatureCardProps) => {
-  const [isHovered, setIsHovered] = useState(false);
   const Icon = feature.icon;
 
   return (
@@ -24,8 +22,6 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
         type: "spring",
         stiffness: 100,
       }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
       className="relative group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:bg-muted/50 transition-colors cursor-default"
     >
       {/* Background gradient blob that reveals on hover */}
@@ -34,7 +30,7 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
       />
 
       <div className="mb-6 inline-flex p-4 rounded-2xl bg-background border border-border shadow-sm group-hover:scale-110 transition-transform duration-300 ease-spring">
-        <Icon size={32} className="text-foreground" isActive={isHovered} />
+        <Icon size={32} className="text-foreground" />
       </div>
 
       <h3 className="text-xl font-bold mb-3 transition-colors duration-300 group-hover:text-foreground">
