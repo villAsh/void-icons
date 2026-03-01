@@ -39,7 +39,7 @@ export const ANIMATED_ICONS: ShowcaseItem[] = [
   { icon: Globe, name: "globe", label: "Globe" },
   { icon: Heart, name: "heart", label: "Heart" },
   { icon: Star, name: "star", label: "Star" },
-  { icon: Sparkles, name: "sparkles", label: "Sparkle" },
+  { icon: Sparkles, name: "sparkles", label: "Sparkles" },
   { icon: Cloud, name: "cloud", label: "Cloud" },
   { icon: Sun, name: "sun", label: "Sun" },
   { icon: Moon, name: "moon", label: "Moon" },
