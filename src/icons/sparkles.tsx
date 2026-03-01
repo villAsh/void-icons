@@ -35,11 +35,6 @@ const crossVVariants: Variants = {
       ease: "easeInOut",
     },
   },
-  tap: {
-    pathLength: [1, 0, 1],
-    opacity: 1,
-    transition: { duration: 0.25, ease: "easeOut", delay: 0.05 },
-  },
 };
 
 const crossHVariants: Variants = {
@@ -56,11 +51,6 @@ const crossHVariants: Variants = {
       duration: 0.5,
       ease: "easeInOut",
     },
-  },
-  tap: {
-    pathLength: [1, 0, 1],
-    opacity: 1,
-    transition: { duration: 0.25, ease: "easeOut", delay: 0.1 },
   },
 };
 
@@ -80,16 +70,10 @@ const dotVariants: Variants = {
       repeat: 0,
     },
   },
-  tap: {
-    scale: [1, 2, 0.5, 1],
-    opacity: 1,
-    transition: { duration: 0.3, ease: "easeOut", repeat: 0 },
-  },
 };
 
 const Sparkles = ({
   size = 24,
-  isActive,
   className,
   strokeWidth = 1.5,
   width,
@@ -105,8 +89,8 @@ const Sparkles = ({
       strokeLinecap="round"
       strokeLinejoin="round"
       initial="initial"
-      animate={isActive ? "hover" : "animate"}
-      whileTap="tap"
+      animate="animate"
+      whileHover="hover"
       {...rest}
       width={size ?? width ?? 24}
       height={size ?? height ?? 24}
