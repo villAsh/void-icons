@@ -42,14 +42,14 @@ export const Hero = () => {
               />
             </Button>
 
-            <Button
+            {/* <Button
               href="https://github.com/void-icons"
               variant="voidSecondary"
               size="void"
               withHoverSweep
             >
               Documentation
-            </Button>
+            </Button> */}
           </motion.div>
         </motion.div>
       </div>
