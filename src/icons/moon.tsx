@@ -1,27 +1,55 @@
 import { cn } from "@/lib/utils";
 import type { IconProps } from "@/types/icon";
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
 
-const Moon = ({ className, height = "24", width = "24" }: IconProps) => {
+const pathVariants: Variants = {
+  initial: { opacity: 0, fill: "transparent", scale: 0, rotate: 0 },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
+    fill: "transparent",
+    transition: { duration: 0.9, ease: "easeInOut" },
+  },
+  hover: {
+    opacity: 1,
+    rotate: [1, 10, 5, 1],
+    scale: [1, 1.1, 0.9, 1.1, 1],
+    fill: "currentColor",
+    transition: {
+      duration: 0.82,
+      ease: "easeInOut",
+      times: [0, 0.2, 0.4, 0.55, 0.7, 0.85, 1],
+    },
+  },
+};
+
+const Moon = ({
+  size = 24,
+  className,
+  strokeWidth = 2,
+  width,
+  height,
+  ...rest
+}: IconProps) => {
   return (
     <motion.svg
-      width={width}
-      height={height}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={cn("lucide lucide-moon-icon lucide-moon", className)}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      initial="initial"
+      animate={"animate"}
+      whileHover={"hover"}
+      {...rest}
+      width={size ?? width ?? 24}
+      height={size ?? height ?? 24}
+      strokeWidth={strokeWidth}
+      className={cn("lucide lucide-moon", className)}
     >
       <motion.path
-        initial={{ pathLength: 0 }}
-        animate={{ pathLength: 1 }}
-        transition={{ duration: 0.7, ease: "easeInOut" }}
-        exit={{ pathLength: 0, opacity: 0.3 }}
+        variants={pathVariants}
         d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
       />
     </motion.svg>
