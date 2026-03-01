@@ -1,6 +1,13 @@
 import Zap from "@/icons/zap";
 import Shield from "@/icons/shield";
 import Sparkles from "@/icons/sparkles";
+import type { ShowcaseItem } from "@/components/home/showcase";
+import Globe from "@/icons/globe";
+import Heart from "@/icons/heart";
+import Star from "@/icons/star";
+import Cloud from "@/icons/cloud";
+import Sun from "@/icons/sun";
+import Moon from "@/icons/moon";
 
 export const features = [
   {
@@ -24,4 +31,16 @@ export const features = [
     icon: Sparkles,
     color: "from-purple-500 to-pink-500",
   },
+];
+
+export const ANIMATED_ICONS: ShowcaseItem[] = [
+  { icon: Zap, name: "zap", label: "Zap" },
+  { icon: Shield, name: "shield", label: "Shield" },
+  { icon: Globe, name: "globe", label: "Globe" },
+  { icon: Heart, name: "heart", label: "Heart" },
+  { icon: Star, name: "star", label: "Star" },
+  { icon: Sparkles, name: "sparkles", label: "Sparkle" },
+  { icon: Cloud, name: "cloud", label: "Cloud" },
+  { icon: Sun, name: "sun", label: "Sun" },
+  { icon: Moon, name: "moon", label: "Moon" },
 ];
