@@ -11,11 +11,12 @@ const pathVariants: Variants = {
   },
   hover: {
     pathLength: 1,
-    scale: 1.1,
+    scale: [1, 1.1, 0.9, 1.1, 1],
     opacity: 1,
     transition: {
-      duration: 1.0,
+      duration: 0.82,
       ease: "easeInOut",
+      times: [0, 0.2, 0.4, 0.55, 0.7, 0.85, 1],
     },
   },
 };
@@ -37,7 +38,6 @@ const plusVariants: Variants = {
 
 const Shield = ({
   size = 24,
-  isActive,
   className,
   strokeWidth = 1.5,
   width,
@@ -53,7 +53,8 @@ const Shield = ({
       strokeLinecap="round"
       strokeLinejoin="round"
       initial="initial"
-      animate={isActive ? "hover" : "animate"}
+      animate={"animate"}
+      whileHover={"hover"}
       {...rest}
       width={size ?? width ?? 24}
       height={size ?? height ?? 24}
