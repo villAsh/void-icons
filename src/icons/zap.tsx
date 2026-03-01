@@ -22,7 +22,6 @@ const pathVariants: Variants = {
 
 const Zap = ({
   size = 24,
-  isActive,
   className,
   strokeWidth = 1.5,
   width,
@@ -38,8 +37,8 @@ const Zap = ({
       strokeLinecap="round"
       strokeLinejoin="round"
       initial="initial"
-      animate={isActive ? "hover" : "animate"}
-      whileTap="tap"
+      animate="animate"
+      whileHover="hover"
       {...rest}
       width={size ?? width ?? 24}
       height={size ?? height ?? 24}
