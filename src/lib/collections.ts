@@ -34,13 +34,13 @@ export const features = [
 ];
 
 export const ANIMATED_ICONS: ShowcaseItem[] = [
-  { icon: Zap, name: "zap", label: "Zap" },
-  { icon: Shield, name: "shield", label: "Shield" },
-  { icon: Globe, name: "globe", label: "Globe" },
-  { icon: Heart, name: "heart", label: "Heart" },
-  { icon: Star, name: "star", label: "Star" },
-  { icon: Sparkles, name: "sparkles", label: "Sparkles" },
-  { icon: Cloud, name: "cloud", label: "Cloud" },
-  { icon: Sun, name: "sun", label: "Sun" },
-  { icon: Moon, name: "moon", label: "Moon" },
+  { icon: Zap, name: "zap", label: "Zap", category: "Development" },
+  { icon: Shield, name: "shield", label: "Shield", category: "Security" },
+  { icon: Globe, name: "globe", label: "Globe", category: "Communication" },
+  { icon: Heart, name: "heart", label: "Heart", category: "Social" },
+  { icon: Star, name: "star", label: "Star", category: "Social" },
+  { icon: Sparkles, name: "sparkles", label: "Sparkles", category: "Effects" },
+  { icon: Cloud, name: "cloud", label: "Cloud", category: "Weather" },
+  { icon: Sun, name: "sun", label: "Sun", category: "Weather" },
+  { icon: Moon, name: "moon", label: "Moon", category: "Weather" },
 ];
