@@ -11,6 +11,7 @@ export interface ShowcaseItem {
   icon: ComponentType<IconProps>;
   name: string;
   label: string;
+  category?: string;
 }
 
 export const Showcase = () => {

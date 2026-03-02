@@ -23,7 +23,7 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-1">
           {links.map((link) => {
-            const isActive = path === link.to;
+            const isActive = link.to === "/" ? path === "/" : path.startsWith(link.to);
             return (
               <Link
                 key={link.to}
