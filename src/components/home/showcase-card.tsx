@@ -2,6 +2,11 @@
 
 import { motion } from "motion/react";
 import type { ShowcaseItem } from "./showcase";
+import { Tooltip } from "../ui/tooltip";
+import { Copy, Terminal, Check } from "lucide-react";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
 
 interface ShowcaseCardProps {
   item: ShowcaseItem;
@@ -10,6 +15,26 @@ interface ShowcaseCardProps {
 
 export const ShowcaseCard = ({ item, index }: ShowcaseCardProps) => {
   const IconComponent = item.icon;
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    try {
+      const response = await fetch(`/api/icons/${item.name}`);
+      const code = await response.text();
+      await navigator.clipboard.writeText(code);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy icon code:", err);
+    }
+  };
+
+  const handleCommand = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    // Implementation for command/install will come later as discussed
+    console.log(`Install command for ${item.name}`);
+  };
 
   return (
     <motion.div
@@ -24,20 +49,59 @@ export const ShowcaseCard = ({ item, index }: ShowcaseCardProps) => {
         damping: 14,
       }}
       whileTap={{ scale: 0.97 }}
-      className="group relative flex flex-col items-center justify-center p-8 bg-card border border-border/50 rounded-3xl hover:border-primary/40 transition-colors duration-300 shadow-sm hover:shadow-xl hover:shadow-primary/10 cursor-pointer overflow-hidden"
+      className="group relative flex flex-col items-center justify-center p-4 bg-card border border-border/50 rounded-sm hover:border-primary/40 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-primary/10 cursor-pointer min-h-[140px]"
     >
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0 }}
-        whileHover={{
-          opacity: 1,
-        }}
-        transition={{ duration: 0.3 }}
-        className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-primary/4 pointer-events-none rounded-3xl"
-      />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0 }}
+          whileHover={{
+            opacity: 1,
+          }}
+          transition={{ duration: 0.3 }}
+          className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-primary/4"
+        />
+
+        {/* Action Buttons */}
+        <div className="absolute bottom-0 left-0 right-0 p-2 flex items-center justify-center gap-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-background/80 backdrop-blur-sm border-t border-border/50 z-20 pointer-events-auto">
+          <Tooltip content={copied ? "Copied!" : "Copy component tsx file"}>
+            <Button
+              variant="ghost"
+              size="icon-xs"
+              onClick={handleCopy}
+              className={cn(
+                "p-1.5 transition-colors",
+                copied
+                  ? "bg-green-500/10 text-green-500"
+                  : "hover:bg-primary/10 text-muted-foreground hover:text-primary",
+              )}
+            >
+              {copied ? <Check size={14} /> : <Copy size={14} />}
+            </Button>
+          </Tooltip>
+
+          <Tooltip content="CLI Command">
+            <Button
+              variant="ghost"
+              size="icon-xs"
+              onClick={handleCommand}
+              className="p-1.5 rounded-sm hover:bg-primary/10 text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Terminal size={14} />
+            </Button>
+          </Tooltip>
+        </div>
+      </div>
 
       <div className="mb-4 text-foreground group-hover:text-primary transition-colors duration-300 relative z-10">
-        <IconComponent size={36} strokeWidth={1.5} />
+        <Tooltip
+          content={item.label}
+          side="top"
+          offset={20}
+          className="font-semibold lowercase rounded-sm"
+        >
+          <IconComponent size={36} strokeWidth={1.5} />
+        </Tooltip>
       </div>
 
       <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300 relative z-10">
