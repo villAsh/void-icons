@@ -62,7 +62,10 @@ export const ShowcaseCard = ({ item, index }: ShowcaseCardProps) => {
         </Tooltip>
       </div>
       <div className="w-full mt-4 flex items-center justify-center gap-4 bg-transparent z-20 pointer-events-auto">
-        <Tooltip content={copied ? "Copied!" : "Copy component tsx file"}>
+        <Tooltip
+          content={copied ? "Copied!" : `Copy ${item.label}.tsx file`}
+          className="lowercase"
+        >
           <Button
             variant="ghost"
             size="icon-xs"
