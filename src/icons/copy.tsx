@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 import type { IconProps } from "@/types/icon";
 import { motion, type Variants } from "motion/react";
@@ -47,7 +45,7 @@ const Copy = ({
 }: IconProps) => {
   return (
     <motion.svg
-      viewBox="0 0 24 24"
+      viewBox="0 0 28 28"
       fill="none"
       stroke="currentColor"
       strokeLinecap="round"
