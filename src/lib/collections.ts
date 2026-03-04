@@ -45,7 +45,6 @@ export const ANIMATED_ICONS: ShowcaseItem[] = [
   { icon: Cloud, name: "cloud", label: "Cloud", category: "Weather" },
   { icon: Sun, name: "sun", label: "Sun", category: "Weather" },
   { icon: Moon, name: "moon", label: "Moon", category: "Weather" },
-  { icon: Moon, name: "moon", label: "Moon", category: "Weather" },
   { icon: Copy, name: "copy", label: "Copy", category: "Communication" },
   { icon: Check, name: "check", label: "Check", category: "Communication" },
 ];
