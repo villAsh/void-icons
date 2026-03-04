@@ -3,10 +3,10 @@
 import { motion } from "motion/react";
 import type { ShowcaseItem } from "./showcase";
 import { Tooltip } from "../ui/tooltip";
-import { Copy, Terminal, Check } from "lucide-react";
+import { Terminal } from "lucide-react";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
-import { Button } from "../ui/button";
+import Copy from "@/icons/copy";
+import Check from "@/icons/check";
 
 interface ShowcaseCardProps {
   item: ShowcaseItem;
@@ -66,30 +66,26 @@ export const ShowcaseCard = ({ item, index }: ShowcaseCardProps) => {
           content={copied ? "Copied!" : `Copy ${item.label}.tsx file`}
           className="lowercase"
         >
-          <Button
-            variant="ghost"
-            size="icon-xs"
-            onClick={handleCopy}
-            className={cn(
-              "p-1.5 transition-colors",
-              copied
-                ? "bg-green-500/10 text-green-500"
-                : "hover:bg-primary/10 text-muted-foreground hover:text-primary",
-            )}
+          <motion.div
+            whileHover="hover"
+            initial="initial"
+            animate="animate"
+            className="cursor-pointer"
           >
-            {copied ? <Check size={14} /> : <Copy size={14} />}
-          </Button>
+            {copied ? (
+              <Check size={18} />
+            ) : (
+              <Copy onClick={handleCopy} size={18} />
+            )}
+          </motion.div>
         </Tooltip>
 
         <Tooltip content="CLI Command">
-          <Button
-            variant="ghost"
-            size="icon-xs"
+          <Terminal
+            size={18}
             onClick={handleCommand}
-            className="p-1.5 rounded-sm hover:bg-primary/10 text-muted-foreground hover:text-primary transition-colors"
-          >
-            <Terminal size={14} />
-          </Button>
+            className="cursor-pointer"
+          />
         </Tooltip>
       </div>
     </motion.div>
