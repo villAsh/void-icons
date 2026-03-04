@@ -61,7 +61,7 @@ export const ShowcaseCard = ({ item, index }: ShowcaseCardProps) => {
           <IconComponent size={36} strokeWidth={1.5} />
         </Tooltip>
       </div>
-      <div className="w-full mt-4 flex items-center justify-center gap-4 bg-transparent z-20 pointer-events-auto">
+      <div className="w-full mt-4 flex items-center justify-center gap-8 bg-transparent z-20 pointer-events-auto">
         <Tooltip
           content={copied ? "Copied!" : `Copy ${item.label}.tsx file`}
           className="lowercase"
@@ -73,16 +73,16 @@ export const ShowcaseCard = ({ item, index }: ShowcaseCardProps) => {
             className="cursor-pointer"
           >
             {copied ? (
-              <Check size={18} />
+              <Check size={22} />
             ) : (
-              <Copy onClick={handleCopy} size={18} />
+              <Copy onClick={handleCopy} size={22} />
             )}
           </motion.div>
         </Tooltip>
 
         <Tooltip content="CLI Command">
           <Terminal
-            size={18}
+            size={22}
             onClick={handleCommand}
             className="cursor-pointer"
           />

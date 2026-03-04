@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Hind } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/system/navbar";
-import { SmoothScrolling } from "@/components/system/smooth-scrolling";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -33,10 +32,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SmoothScrolling>
-            <Navbar />
-            {children}
-          </SmoothScrolling>
+          <Navbar />
+          {children}
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
