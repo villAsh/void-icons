@@ -15,7 +15,11 @@ const circleVariants: Variants = {
   hover: {
     pathLength: [1, 0.5, 1],
     opacity: 1,
-    transition: { duration: 1.2, ease: "easeInOut" },
+    transition: {
+      duration: 1.2,
+      ease: "easeInOut",
+      repeat: Infinity,
+    },
   },
 };
 
@@ -33,6 +37,7 @@ const meridianVariants: Variants = {
       duration: 1.2,
       ease: "easeInOut",
       delay: 0.15,
+      repeat: Infinity,
     },
   },
 };
@@ -50,6 +55,7 @@ const equatorVariants: Variants = {
     transition: {
       duration: 1.2,
       delay: 0.3,
+      repeat: Infinity,
     },
   },
 };
