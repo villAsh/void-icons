@@ -11,6 +11,7 @@ import Moon from "@/icons/moon";
 import Copy from "@/icons/copy";
 import Check from "@/icons/check";
 import terminal from "@/icons/terminal";
+import activity from "@/icons/activity";
 
 export const features = [
   {
@@ -53,5 +54,11 @@ export const ANIMATED_ICONS: ShowcaseItem[] = [
     name: "terminal",
     label: "Terminal",
     category: "Communication",
+  },
+  {
+    icon: activity,
+    name: "activity",
+    label: "Activity",
+    category: "Effects",
   },
 ];
