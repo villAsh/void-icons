@@ -1,6 +1,9 @@
 import { cn } from "@/lib/utils";
-import type { IconProps } from "@/types/icon";
-import { motion, type Variants } from "motion/react";
+import { motion, type SVGMotionProps, type Variants } from "motion/react";
+
+export interface IconProps extends SVGMotionProps<SVGSVGElement> {
+  size?: number;
+}
 
 const containerVariants: Variants = {
   initial: {},

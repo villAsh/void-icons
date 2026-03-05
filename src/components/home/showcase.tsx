@@ -2,7 +2,7 @@
 import { Button } from "../ui/button";
 import { ShowcaseHeading } from "./heading";
 import { MoveUpRight } from "lucide-react";
-import type { IconProps } from "@/types/icon";
+import type { IconProps } from "@/icons/star";
 import type { ComponentType } from "react";
 import { ANIMATED_ICONS } from "@/lib/collections";
 import { ShowcaseCard } from "./showcase-card";
