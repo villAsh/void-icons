@@ -3,10 +3,10 @@
 import { motion } from "motion/react";
 import type { ShowcaseItem } from "./showcase";
 import { Tooltip } from "../ui/tooltip";
-import { Terminal } from "lucide-react";
 import { useState } from "react";
 import Copy from "@/icons/copy";
 import Check from "@/icons/check";
+import Terminal from "@/icons/terminal";
 
 interface ShowcaseCardProps {
   item: ShowcaseItem;
@@ -16,6 +16,7 @@ interface ShowcaseCardProps {
 export const ShowcaseCard = ({ item, index }: ShowcaseCardProps) => {
   const IconComponent = item.icon;
   const [copied, setCopied] = useState(false);
+  const [commandCopied, setCommandCopied] = useState(false);
 
   const handleCopy = async (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -30,10 +31,18 @@ export const ShowcaseCard = ({ item, index }: ShowcaseCardProps) => {
     }
   };
 
-  const handleCommand = (e: React.MouseEvent) => {
+  const handleCommand = async (e: React.MouseEvent) => {
     e.stopPropagation();
-    // Implementation for command/install will come later as discussed
-    console.log(`Install command for ${item.name}`);
+    try {
+      const origin = window.location.origin;
+      const command = `npx shadcn@latest add ${origin}/registry/${item.name}.json`;
+      await navigator.clipboard.writeText(command);
+
+      setCommandCopied(true);
+      setTimeout(() => setCommandCopied(false), 2000);
+    } catch (err) {
+      console.error(`Failed to copy install command for ${item.name}:`, err);
+    }
   };
 
   return (
@@ -80,12 +89,18 @@ export const ShowcaseCard = ({ item, index }: ShowcaseCardProps) => {
           </motion.div>
         </Tooltip>
 
-        <Tooltip content="CLI Command">
-          <Terminal
-            size={22}
-            onClick={handleCommand}
-            className="cursor-pointer"
-          />
+        <Tooltip
+          content={commandCopied ? "Copied Command!" : "Copy CLI Command"}
+        >
+          {commandCopied ? (
+            <Check size={22} className="cursor-pointer" />
+          ) : (
+            <Terminal
+              size={22}
+              onClick={handleCommand}
+              className="cursor-pointer"
+            />
+          )}
         </Tooltip>
       </div>
     </motion.div>
