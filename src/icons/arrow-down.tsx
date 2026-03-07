@@ -8,11 +8,10 @@ export interface IconProps extends SVGMotionProps<SVGSVGElement> {
 const arrowVariants: Variants = {
   initial: { y: 0 },
   hover: {
-    y: [0, 4, 0],
+    y: [0, 6],
     transition: {
-      duration: 0.8,
+      duration: 0.5,
       ease: "easeInOut",
-      repeat: Infinity,
     },
   },
 };
