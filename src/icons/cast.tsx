@@ -18,7 +18,7 @@ const castBodyVariants: Variants = {
 };
 
 const arc1Variants: Variants = {
-  initial: { opacity: 0.3 },
+  initial: { opacity: 1 },
   hover: {
     opacity: [0.3, 1, 0.3],
     transition: {
@@ -31,7 +31,7 @@ const arc1Variants: Variants = {
 };
 
 const arc2Variants: Variants = {
-  initial: { opacity: 0.3 },
+  initial: { opacity: 1 },
   hover: {
     opacity: [0.3, 1, 0.3],
     transition: {
@@ -44,7 +44,7 @@ const arc2Variants: Variants = {
 };
 
 const dotVariants: Variants = {
-  initial: { opacity: 0.3 },
+  initial: { opacity: 1 },
   hover: {
     opacity: [0.3, 1, 0.3],
     transition: {
