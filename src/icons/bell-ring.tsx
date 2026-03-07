@@ -8,29 +8,31 @@ export interface IconProps extends SVGMotionProps<SVGSVGElement> {
 const bellVariants: Variants = {
   initial: { rotate: 0 },
   hover: {
-    rotate: [-12, 12, -10, 10, -6, 6, 0],
+    rotate: [-14, 14, -10, 10, -6, 6, 0],
+    transition: {
+      duration: 0.9,
+      ease: "easeInOut",
+      repeat: Infinity,
+      repeatDelay: 0.7,
+    },
+  },
+};
+
+const waveVariants: Variants = {
+  initial: { opacity: 0.4, scale: 1 },
+  hover: (i: number) => ({
+    opacity: [0.4, 1, 0.4],
+    scale: [1, 1.15, 1],
     transition: {
       duration: 0.8,
-      ease: "easeInOut",
+      delay: i * 0.15,
       repeat: Infinity,
-      repeatDelay: 0.8,
+      ease: "easeInOut",
     },
-  },
+  }),
 };
 
-const clapperVariants: Variants = {
-  initial: { y: 0 },
-  hover: {
-    y: [0, 1.5, -1.5, 1, 0],
-    transition: {
-      duration: 0.6,
-      ease: "easeInOut",
-      repeat: Infinity,
-    },
-  },
-};
-
-const Bell = ({
+const BellRing = ({
   size = 24,
   className,
   strokeWidth = 2,
@@ -46,24 +48,32 @@ const Bell = ({
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={cn("lucide lucide-bell", className)}
+      className={cn("lucide lucide-bell-ring", className)}
       width={size ?? width ?? 24}
       height={size ?? height ?? 24}
       strokeWidth={strokeWidth}
-      variants={bellVariants}
       initial="initial"
       whileHover="hover"
+      variants={bellVariants}
       style={{ originX: "50%", originY: "10%" }}
       {...rest}
     >
-      <motion.path
-        variants={clapperVariants}
-        d="M10.268 21a2 2 0 0 0 3.464 0"
-      />
+      <path d="M10.268 21a2 2 0 0 0 3.464 0" />
 
       <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" />
+
+      <motion.path
+        custom={0}
+        variants={waveVariants}
+        d="M22 8c0-2.3-.8-4.3-2-6"
+      />
+      <motion.path
+        custom={1}
+        variants={waveVariants}
+        d="M4 2C2.8 3.7 2 5.7 2 8"
+      />
     </motion.svg>
   );
 };
 
-export default Bell;
+export default BellRing;
