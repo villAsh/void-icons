@@ -62,7 +62,7 @@ export const ShowcaseCard = ({ item, index }: ShowcaseCardProps) => {
     >
       <div className="mb-4 text-foreground group-hover:text-primary transition-colors duration-300 relative z-10">
         <Tooltip
-          content={item.label}
+          content={item.name}
           side="top"
           offset={20}
           className="font-semibold lowercase rounded-sm"
@@ -72,7 +72,7 @@ export const ShowcaseCard = ({ item, index }: ShowcaseCardProps) => {
       </div>
       <div className="w-full mt-4 flex items-center justify-center gap-8 bg-transparent z-20 pointer-events-auto">
         <Tooltip
-          content={copied ? "Copied!" : `Copy ${item.label}.tsx file`}
+          content={copied ? "Copied!" : `Copy ${item.name}.tsx file`}
           className="lowercase"
         >
           <motion.div
