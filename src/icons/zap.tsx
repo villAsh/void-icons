@@ -6,12 +6,7 @@ export interface IconProps extends SVGMotionProps<SVGSVGElement> {
 }
 
 const pathVariants: Variants = {
-  initial: { pathLength: 0, opacity: 0 },
-  animate: {
-    pathLength: 1,
-    opacity: 1,
-    transition: { duration: 0.5, ease: "easeInOut" },
-  },
+  initial: { pathLength: 1, opacity: 1 },
   hover: {
     pathLength: [0, 1],
     opacity: [1, 0.6, 1, 0.7, 1],
@@ -40,7 +35,6 @@ const Zap = ({
       strokeLinecap="round"
       strokeLinejoin="round"
       initial="initial"
-      animate="animate"
       whileHover="hover"
       {...rest}
       width={size ?? width ?? 24}

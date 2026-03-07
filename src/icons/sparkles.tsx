@@ -6,13 +6,7 @@ export interface IconProps extends SVGMotionProps<SVGSVGElement> {
 }
 
 const mainSparkleVariants: Variants = {
-  initial: { rotate: 0, scale: 1 },
-  animate: {
-    rotate: 0,
-    scale: 1,
-    opacity: 1,
-    transition: { duration: 0.7, ease: "easeInOut" },
-  },
+  initial: { rotate: 0, scale: 1, opacity: 1 },
   hover: {
     rotate: 90,
     scale: 0.7,
@@ -24,12 +18,7 @@ const mainSparkleVariants: Variants = {
 };
 
 const crossVVariants: Variants = {
-  initial: { pathLength: 0, opacity: 0 },
-  animate: {
-    pathLength: 1,
-    opacity: 1,
-    transition: { duration: 0.4, ease: "easeInOut", delay: 0.5 },
-  },
+  initial: { pathLength: 1, opacity: 1 },
   hover: {
     pathLength: [1, 0, 1],
     opacity: 1,
@@ -41,12 +30,7 @@ const crossVVariants: Variants = {
 };
 
 const crossHVariants: Variants = {
-  initial: { pathLength: 0, opacity: 0 },
-  animate: {
-    pathLength: 1,
-    opacity: 1,
-    transition: { duration: 0.4, ease: "easeInOut", delay: 0.65 },
-  },
+  initial: { pathLength: 1, opacity: 1 },
   hover: {
     pathLength: [1, 0, 1],
     opacity: 1,
@@ -58,12 +42,7 @@ const crossHVariants: Variants = {
 };
 
 const dotVariants: Variants = {
-  initial: { scale: 0, opacity: 0 },
-  animate: {
-    scale: 1,
-    opacity: 1,
-    transition: { duration: 0.3, ease: "backOut", delay: 0.8, repeat: 0 },
-  },
+  initial: { scale: 1, opacity: 1 },
   hover: {
     scale: [1, 1.2, 0.8, 1.4, 1],
     opacity: 1,
@@ -92,7 +71,6 @@ const Sparkles = ({
       strokeLinecap="round"
       strokeLinejoin="round"
       initial="initial"
-      animate="animate"
       whileHover="hover"
       {...rest}
       width={size ?? width ?? 24}

@@ -7,7 +7,6 @@ export interface IconProps extends SVGMotionProps<SVGSVGElement> {
 
 const containerVariants: Variants = {
   initial: {},
-  animate: {},
   hover: {
     transition: {
       staggerChildren: 0.15,
@@ -16,12 +15,7 @@ const containerVariants: Variants = {
 };
 
 const pathVariants: Variants = {
-  initial: { pathLength: 0, opacity: 0 },
-  animate: {
-    pathLength: 1,
-    opacity: 1,
-    transition: { duration: 1.0, ease: "easeInOut" },
-  },
+  initial: { pathLength: 1, opacity: 1 },
   hover: {
     pathLength: 1,
     opacity: 1,
@@ -62,7 +56,6 @@ const Cloud = ({
       strokeLinecap="round"
       strokeLinejoin="round"
       initial="initial"
-      animate="animate"
       whileHover="hover"
       {...rest}
       width={size ?? width ?? 24}

@@ -6,12 +6,7 @@ export interface IconProps extends SVGMotionProps<SVGSVGElement> {
 }
 
 const circleVariants: Variants = {
-  initial: { pathLength: 0, opacity: 0 },
-  animate: {
-    pathLength: 1,
-    opacity: 1,
-    transition: { duration: 0.45, ease: "easeOut" },
-  },
+  initial: { pathLength: 1, opacity: 1 },
   hover: {
     pathLength: [1, 0.6, 1],
     opacity: 1,
@@ -20,12 +15,7 @@ const circleVariants: Variants = {
 };
 
 const makeRayVariants = (delay: number): Variants => ({
-  initial: { pathLength: 0, opacity: 0 },
-  animate: {
-    pathLength: 1,
-    opacity: 1,
-    transition: { duration: 0.3, ease: "easeOut", delay },
-  },
+  initial: { pathLength: 1, opacity: 1 },
   hover: {
     pathLength: [1, 0, 1],
     opacity: 1,
@@ -65,8 +55,7 @@ const Sun = ({
       strokeLinecap="round"
       strokeLinejoin="round"
       initial="initial"
-      animate={"animate"}
-      whileHover={"hover"}
+      whileHover="hover"
       {...rest}
       width={size ?? width ?? 24}
       height={size ?? height ?? 24}

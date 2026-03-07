@@ -6,12 +6,7 @@ export interface IconProps extends SVGMotionProps<SVGSVGElement> {
 }
 
 const pathVariants: Variants = {
-  initial: { pathLength: 0, opacity: 0 },
-  animate: {
-    pathLength: 1,
-    opacity: 1,
-    transition: { duration: 0.8, ease: "easeInOut" },
-  },
+  initial: { pathLength: 1, opacity: 1 },
   hover: {
     pathLength: 1,
     scale: [1, 1.1, 0.9, 1.1, 1],
@@ -26,8 +21,8 @@ const pathVariants: Variants = {
 
 const plusVariants: Variants = {
   initial: {
-    pathLength: 0,
-    opacity: 0,
+    pathLength: 1,
+    opacity: 1,
   },
   hover: {
     opacity: 1,
@@ -56,7 +51,6 @@ const Shield = ({
       strokeLinecap="round"
       strokeLinejoin="round"
       initial="initial"
-      animate={"animate"}
       whileHover={"hover"}
       {...rest}
       width={size ?? width ?? 24}
