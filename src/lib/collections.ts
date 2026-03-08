@@ -102,6 +102,17 @@ import SendHorizontal from "@/icons/send-horizontal";
 import Share from "@/icons/share";
 import ShieldCheck from "@/icons/shield-check";
 import Shuffle from "@/icons/shuffle";
+import CircleUserRound from "@/icons/circle-user-round";
+import Ghost from "@/icons/ghost";
+import Github from "@/icons/github";
+import HeadphoneOff from "@/icons/headphone-off";
+import House from "@/icons/house";
+import Mail from "@/icons/mail";
+import Phone from "@/icons/phone";
+import PhoneCall from "@/icons/phone-call";
+import PhoneIncoming from "@/icons/phone-incoming";
+import PhoneOff from "@/icons/phone-off";
+import PhoneOutgoing from "@/icons/phone-outgoing";
 
 export const features = [
   {
@@ -614,6 +625,12 @@ export const ANIMATED_ICONS: ShowcaseItem[] = [
     category: "Arrows",
   },
   {
+    icon: CircleUserRound,
+    name: "circle-user-round",
+    label: "Circle User Round",
+    category: "Social",
+  },
+  {
     icon: Scan,
     name: "scan",
     label: "Scan",
@@ -641,6 +658,66 @@ export const ANIMATED_ICONS: ShowcaseItem[] = [
     icon: ScanSearch,
     name: "scan-search",
     label: "Scan Search",
+    category: "Communication",
+  },
+  {
+    icon: Ghost,
+    name: "ghost",
+    label: "Ghost",
+    category: "Social",
+  },
+  {
+    icon: Github,
+    name: "github",
+    label: "Github",
+    category: "Social",
+  },
+  {
+    icon: HeadphoneOff,
+    name: "headphone-off",
+    label: "Headphone Off",
+    category: "Communication",
+  },
+  {
+    icon: House,
+    name: "house",
+    label: "House",
+    category: "General",
+  },
+  {
+    icon: Mail,
+    name: "mail",
+    label: "Mail",
+    category: "Communication",
+  },
+  {
+    icon: Phone,
+    name: "phone",
+    label: "Phone",
+    category: "Communication",
+  },
+  {
+    icon: PhoneCall,
+    name: "phone-call",
+    label: "Phone Call",
+    category: "Communication",
+  },
+  {
+    icon: PhoneIncoming,
+    name: "phone-incoming",
+    label: "Phone Incoming",
+    category: "Communication",
+  },
+  {
+    icon: PhoneOff,
+    name: "phone-off",
+    label: "Phone Off",
+    category: "Communication",
+  },
+  {
+    icon: PhoneOutgoing,
+    name: "phone-outgoing",
+    label: "Phone Outgoing",
     category: "Communication",
   },
   {
