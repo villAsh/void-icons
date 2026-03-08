@@ -1,17 +1,12 @@
 import { cn } from "@/lib/utils";
-import type { IconProps } from "@/types/icon";
-import { motion, type Variants } from "motion/react";
+import { motion, type SVGMotionProps, type Variants } from "motion/react";
+
+export interface IconProps extends SVGMotionProps<SVGSVGElement> {
+  size?: number;
+}
 
 const pathVariants: Variants = {
-  initial: { pathLength: 0, opacity: 0, fill: "transparent" },
-  animate: {
-    pathLength: 1,
-    opacity: 1,
-    scale: 1,
-    x: 0,
-    fill: "transparent",
-    transition: { duration: 0.7, ease: "easeInOut" },
-  },
+  initial: { pathLength: 1, opacity: 1, fill: "transparent" },
   hover: {
     pathLength: 1,
     opacity: 1,
@@ -43,8 +38,7 @@ const Star = ({
       strokeLinecap="round"
       strokeLinejoin="round"
       initial="initial"
-      animate={"animate"}
-      whileHover={"hover"}
+      whileHover="hover"
       {...rest}
       width={size ?? width ?? 24}
       height={size ?? height ?? 24}

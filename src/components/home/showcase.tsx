@@ -2,7 +2,7 @@
 import { Button } from "../ui/button";
 import { ShowcaseHeading } from "./heading";
 import { MoveUpRight } from "lucide-react";
-import type { IconProps } from "@/types/icon";
+import type { IconProps } from "@/icons/star";
 import type { ComponentType } from "react";
 import { ANIMATED_ICONS } from "@/lib/collections";
 import { ShowcaseCard } from "./showcase-card";
@@ -11,6 +11,7 @@ export interface ShowcaseItem {
   icon: ComponentType<IconProps>;
   name: string;
   label: string;
+  category?: string;
 }
 
 export const Showcase = () => {
@@ -33,7 +34,7 @@ export const Showcase = () => {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
-          {ANIMATED_ICONS.map((item, index) => (
+          {ANIMATED_ICONS.slice(0, 10).map((item, index) => (
             <ShowcaseCard key={item.name} item={item} index={index} />
           ))}
         </div>

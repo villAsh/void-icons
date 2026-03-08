@@ -1,8 +1,8 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { Slot } from "radix-ui"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { Slot } from "radix-ui";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
@@ -19,8 +19,7 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
-        void:
-          "group relative bg-black dark:bg-white text-white dark:text-black shadow-[0_4px_14px_0_rgb(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98]",
+        void: "group relative bg-black dark:bg-white text-white dark:text-black shadow-[0_4px_14px_0_rgb(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98]",
         voidSecondary:
           "group relative bg-transparent border border-black/10 text-black dark:border-white/10 dark:text-white shadow-sm overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98]",
       },
@@ -40,19 +39,19 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
-)
+  },
+);
 
-import Link from "next/link"
+import Link from "next/link";
 
 interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  asChild?: boolean
-  withHoverSweep?: boolean
-  href?: string
-  target?: string
-  rel?: string
+  asChild?: boolean;
+  withHoverSweep?: boolean;
+  href?: string;
+  target?: string;
+  rel?: string;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -66,15 +65,16 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       href,
       ...props
     },
-    ref
+    ref,
   ) => {
-    const Comp = asChild ? Slot.Root : href ? "div" : "button"
-    const isLink = !!href
+    const Comp = asChild ? Slot.Root : href ? "div" : "button";
+    const isLink = !!href;
 
-    const isHighContrast = variant === "void" || variant === "default" || variant === "destructive"
+    const isHighContrast =
+      variant === "void" || variant === "default" || variant === "destructive";
     const sweepColor = isHighContrast
       ? "bg-white/15 dark:bg-black/10"
-      : "bg-black/5 dark:bg-white/10"
+      : "bg-black/5 dark:bg-white/10";
 
     const content = (
       <>
@@ -82,7 +82,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           <div
             className={cn(
               "absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0 pointer-events-none",
-              sweepColor
+              sweepColor,
             )}
           />
         )}
@@ -90,13 +90,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           className={cn(
             withHoverSweep || isHighContrast
               ? "relative z-10 flex items-center justify-center gap-2"
-              : ""
+              : "",
           )}
         >
           {props.children}
         </span>
       </>
-    )
+    );
 
     if (isLink && !asChild) {
       return (
@@ -104,14 +104,15 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           href={href}
           className={cn(
             buttonVariants({ variant, size, className }),
-            withHoverSweep && "group relative overflow-hidden"
+            withHoverSweep && "group relative overflow-hidden",
           )}
           target={props.target}
           rel={props.rel}
+          prefetch
         >
           {content}
         </Link>
-      )
+      );
     }
 
     return (
@@ -121,16 +122,16 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         data-size={size}
         className={cn(
           buttonVariants({ variant, size, className }),
-          withHoverSweep && "group relative overflow-hidden"
+          withHoverSweep && "group relative overflow-hidden",
         )}
         ref={ref as any}
         {...(props as any)}
       >
         {content}
       </Comp>
-    )
-  }
-)
-Button.displayName = "Button"
+    );
+  },
+);
+Button.displayName = "Button";
 
-export { Button, buttonVariants }
+export { Button, buttonVariants };
