@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Github } from "lucide-react";
 import { GridWrapper } from "../system/grid-wrapper";
 import AnimatedGridLines from "../system/animated-grid-lines";
 import { Button } from "../ui/button";
@@ -42,14 +42,20 @@ export const Hero = () => {
               />
             </Button>
 
-            {/* <Button
-              href="https://github.com/void-icons"
+            <Button
+              href="https://github.com/villash/void-icons"
               variant="voidSecondary"
               size="void"
               withHoverSweep
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Documentation
-            </Button> */}
+              <Github
+                size={18}
+                className="opacity-70 group-hover:scale-110 transition-transform duration-300 ease-out"
+              />
+              Star on GitHub
+            </Button>
           </motion.div>
         </motion.div>
       </div>

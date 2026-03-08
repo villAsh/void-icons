@@ -6,7 +6,6 @@ import { Button } from "../ui/button";
 export const CallToAction = () => {
   return (
     <section className="py-32 relative overflow-hidden bg-background">
-      {/* Decorative background vectors - massive grid for CTA */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:100px_100px] pointer-events-none z-0" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-[400px] bg-primary/10 blur-[150px] rounded-full pointer-events-none" />
 
@@ -26,15 +25,26 @@ export const CallToAction = () => {
             components crafted for modern React apps.
           </p>
 
-          <div className="flex flex-col items-center gap-6">
+          <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
             <Button
-              href="/docs"
+              href="/icons"
               variant="void"
               size="void"
               className="rounded-full px-10"
               withHoverSweep
             >
               Browse icons
+            </Button>
+            <Button
+              href="https://github.com/villash/void-icons"
+              variant="voidSecondary"
+              size="void"
+              className="rounded-full px-10"
+              withHoverSweep
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Star on GitHub
             </Button>
           </div>
         </motion.div>

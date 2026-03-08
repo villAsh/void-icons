@@ -1,18 +1,24 @@
 import { cn } from "@/lib/utils";
-import type { IconProps } from "@/types/icon";
-import { motion, type Variants } from "motion/react";
+import { motion, type SVGMotionProps, type Variants } from "motion/react";
+
+export interface IconProps extends SVGMotionProps<SVGSVGElement> {
+  size?: number;
+}
 
 const circleVariants: Variants = {
   initial: { pathLength: 0, opacity: 0 },
   animate: {
     pathLength: 1,
     opacity: 1,
-    transition: { duration: 0.45, ease: "easeOut" },
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+    },
   },
   hover: {
     pathLength: [1, 0.6, 1],
     opacity: 1,
-    transition: { duration: 1.2, ease: "easeInOut" },
+    transition: { duration: 1.2, ease: "easeInOut", repeat: Infinity },
   },
 };
 
@@ -21,7 +27,11 @@ const makeRayVariants = (delay: number): Variants => ({
   animate: {
     pathLength: 1,
     opacity: 1,
-    transition: { duration: 0.3, ease: "easeOut", delay },
+    transition: {
+      duration: 0.3,
+      ease: "easeOut",
+      delay: 0.2 + delay * 0.5,
+    },
   },
   hover: {
     pathLength: [1, 0, 1],
@@ -29,8 +39,8 @@ const makeRayVariants = (delay: number): Variants => ({
     transition: {
       duration: 0.6,
       ease: "easeInOut",
-      repeat: 2,
-      delay: delay * 0.5,
+      repeat: Infinity,
+      delay: delay * 0.2,
     },
   },
 });
@@ -62,8 +72,8 @@ const Sun = ({
       strokeLinecap="round"
       strokeLinejoin="round"
       initial="initial"
-      animate={"animate"}
-      whileHover={"hover"}
+      animate="animate"
+      whileHover="hover"
       {...rest}
       width={size ?? width ?? 24}
       height={size ?? height ?? 24}

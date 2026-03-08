@@ -1,28 +1,25 @@
 import { cn } from "@/lib/utils";
-import type { IconProps } from "@/types/icon";
-import { motion, type Variants } from "motion/react";
+import { motion, type SVGMotionProps, type Variants } from "motion/react";
+
+export interface IconProps extends SVGMotionProps<SVGSVGElement> {
+  size?: number;
+}
 
 const circleVariants: Variants = {
-  initial: { pathLength: 0, opacity: 0 },
-  animate: {
-    pathLength: 1,
-    opacity: 1,
-    transition: { duration: 0.6, ease: "easeInOut" },
-  },
+  initial: { pathLength: 1, opacity: 1 },
   hover: {
     pathLength: [1, 0.5, 1],
     opacity: 1,
-    transition: { duration: 1.2, ease: "easeInOut" },
+    transition: {
+      duration: 1.2,
+      ease: "easeInOut",
+      repeat: Infinity,
+    },
   },
 };
 
 const meridianVariants: Variants = {
-  initial: { pathLength: 0, opacity: 0 },
-  animate: {
-    pathLength: 1,
-    opacity: 1,
-    transition: { duration: 0.8, ease: "easeInOut", delay: 0.15 },
-  },
+  initial: { pathLength: 1, opacity: 1 },
   hover: {
     pathLength: [1, 0.2, 1],
     opacity: 1,
@@ -30,23 +27,20 @@ const meridianVariants: Variants = {
       duration: 1.2,
       ease: "easeInOut",
       delay: 0.15,
+      repeat: Infinity,
     },
   },
 };
 
 const equatorVariants: Variants = {
-  initial: { pathLength: 0, opacity: 0 },
-  animate: {
-    pathLength: 1,
-    opacity: 1,
-    transition: { duration: 0.5, ease: "easeInOut", delay: 0.3 },
-  },
+  initial: { pathLength: 1, opacity: 1 },
   hover: {
     pathLength: [1, 0.3, 1],
     opacity: 1,
     transition: {
       duration: 1.2,
       delay: 0.3,
+      repeat: Infinity,
     },
   },
 };
@@ -68,7 +62,6 @@ const Globe = ({
       strokeLinecap="round"
       strokeLinejoin="round"
       initial="initial"
-      animate="animate"
       whileHover="hover"
       {...rest}
       width={size ?? width ?? 24}
