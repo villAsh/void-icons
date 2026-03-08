@@ -7,7 +7,6 @@ import { Button } from "../ui/button";
 export const CallToAction = () => {
   return (
     <section className="py-32 relative overflow-hidden bg-background">
-      {/* Decorative background vectors - massive grid for CTA */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:100px_100px] pointer-events-none z-0" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-[400px] bg-primary/10 blur-[150px] rounded-full pointer-events-none" />
 
