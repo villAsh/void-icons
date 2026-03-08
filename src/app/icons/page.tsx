@@ -1,57 +1,46 @@
-"use client";
-
-import { useState, useMemo } from "react";
-import { motion } from "motion/react";
+import { Metadata } from "next";
+import IconsClient from "@/components/browse-icons/icons-client";
 import { ANIMATED_ICONS } from "@/lib/collections";
-import { SearchBar } from "@/components/icons/search-bar";
-import { IconGrid } from "@/components/icons/icon-grid";
-import { HomeContainerVariants, HomeItemVariants } from "@/lib/variants";
 
-import HeroPill from "@/components/home/hero-pill";
-import Heading from "@/components/browse-icons/heading";
-import SubHeading from "@/components/browse-icons/sub-heading";
-import IconsNotFound from "@/components/browse-icons/icons-not-found";
+export const metadata: Metadata = {
+  title: "Browse 100+ Animated SVG Icons for React | Void Icons",
+  description:
+    "Explore a curated collection of motion-ready Lucide icons. High-performance, customizable, and designed for modern React and Next.js interfaces.",
+  keywords: [
+    "animated icons library",
+    "framer motion icons",
+    "react animated svgs",
+    "lucide animation component",
+    "void icons collection",
+    "open source animated icons",
+  ],
+  alternates: {
+    canonical: "https://void-icons.vercel.app/icons",
+  },
+};
 
 export default function IconsPage() {
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const filteredIcons = useMemo(() => {
-    return ANIMATED_ICONS.filter((icon) => {
-      const matchesSearch = icon.label
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase());
-      return matchesSearch;
-    });
-  }, [searchQuery]);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Void Icons Collection",
+    "description": "A collection of meticulously crafted animated SVG icons for React.",
+    "numberOfItems": ANIMATED_ICONS.length,
+    "itemListElement": ANIMATED_ICONS.slice(0, 20).map((icon, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": icon.label,
+      "description": `Animated ${icon.label} icon for React applications.`,
+    })),
+  };
 
   return (
-    <main className="relative min-h-screen pt-32 pb-24 overflow-hidden bg-white dark:bg-black">
-      <div className="max-w-7xl mx-auto px-6 relative z-10 text-center mb-16">
-        <motion.div
-          variants={HomeContainerVariants}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col items-center"
-        >
-          <HeroPill />
-          <Heading />
-          <SubHeading />
-
-          <motion.div variants={HomeItemVariants} className="w-full mb-8">
-            <SearchBar value={searchQuery} onChange={setSearchQuery} />
-          </motion.div>
-        </motion.div>
-      </div>
-
-      <section className="max-w-7xl mx-auto px-6 relative z-10">
-        <IconGrid icons={filteredIcons} />
-
-        {filteredIcons.length === 0 && (
-          <IconsNotFound setSearchQuery={setSearchQuery} />
-        )}
-      </section>
-
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none -z-10" />
-    </main>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <IconsClient />
+    </>
   );
 }

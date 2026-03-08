@@ -53,6 +53,7 @@ const Navbar = () => {
             href="https://github.com/villash/void-icons"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="GitHub Repository"
             className="p-2 text-muted-foreground hover:text-foreground transition-all hover:bg-muted/50 rounded-lg group"
           >
             <Github
