@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { Github } from "lucide-react";
 import { Button } from "../ui/button";
 
 export const CallToAction = () => {
@@ -26,7 +27,7 @@ export const CallToAction = () => {
             components crafted for modern React apps.
           </p>
 
-          <div className="flex flex-col items-center gap-6">
+          <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
             <Button
               href="/icons"
               variant="void"
@@ -35,6 +36,21 @@ export const CallToAction = () => {
               withHoverSweep
             >
               Browse icons
+            </Button>
+            <Button
+              href="https://github.com/villash/void-icons"
+              variant="voidSecondary"
+              size="void"
+              className="rounded-full px-10"
+              withHoverSweep
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github
+                size={18}
+                className="opacity-70 group-hover:scale-110 transition-transform duration-300 ease-out"
+              />
+              Star on GitHub
             </Button>
           </div>
         </motion.div>

@@ -6,7 +6,7 @@ import Lenis from "lenis";
 export function SmoothScrolling({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const lenis = new Lenis({
-      lerp: 0.08, // Awwwards style smooth scrolling
+      lerp: 0.08,
       smoothWheel: true,
     });
 
