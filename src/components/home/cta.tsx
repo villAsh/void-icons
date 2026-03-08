@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Github } from "lucide-react";
 import { Button } from "../ui/button";
 
 export const CallToAction = () => {
@@ -45,10 +44,6 @@ export const CallToAction = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Github
-                size={18}
-                className="opacity-70 group-hover:scale-110 transition-transform duration-300 ease-out"
-              />
               Star on GitHub
             </Button>
           </div>
