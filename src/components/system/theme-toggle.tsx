@@ -3,7 +3,7 @@
 import * as React from "react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
-import { AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import Sun from "@/icons/sun";
 import Moon from "@/icons/moon";
 
@@ -67,8 +67,17 @@ export function ThemeToggle() {
       onClick={toggleTheme}
       aria-label="Toggle theme"
     >
-      <AnimatePresence>
-        {theme === "light" ? <Sun /> : <Moon />}
+      <AnimatePresence mode="wait">
+        <motion.div
+           key={theme}
+           initial={{ opacity: 0, scale: 0.8, rotate: -20 }}
+           animate={{ opacity: 1, scale: 1, rotate: 0 }}
+           exit={{ opacity: 0, scale: 0.8, rotate: 20 }}
+           whileHover="hover"
+           transition={{ duration: 0.2 }}
+        >
+          {theme === "light" ? <Sun /> : <Moon />}
+        </motion.div>
       </AnimatePresence>
       <span className="sr-only">Toggle theme</span>
     </Button>

@@ -1,10 +1,10 @@
 "use client";
-import { Github } from "lucide-react";
 import { motion } from "motion/react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Logo from "./logo";
 import { ThemeToggle } from "./theme-toggle";
+import Github from "@/icons/github";
 
 const Navbar = () => {
   const path = usePathname();

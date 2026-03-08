@@ -6,23 +6,23 @@ export interface IconProps extends SVGMotionProps<SVGSVGElement> {
 }
 
 const pathVariants: Variants = {
-  initial: { opacity: 0, fill: "transparent", scale: 0, rotate: 0 },
+  initial: { pathLength: 0, opacity: 0, scale: 0.5, rotate: -20 },
   animate: {
+    pathLength: 1,
     opacity: 1,
     scale: 1,
     rotate: 0,
-    fill: "transparent",
-    transition: { duration: 0.9, ease: "easeInOut" },
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+    },
   },
   hover: {
-    opacity: 1,
-    rotate: [1, 10, 5, 1],
-    scale: [1, 1.1, 0.9, 1.1, 1],
-    fill: "currentColor",
+    rotate: [0, 15, 0],
+    scale: [1, 1.1, 1],
     transition: {
-      duration: 0.82,
+      duration: 0.6,
       ease: "easeInOut",
-      times: [0, 0.2, 0.4, 0.55, 0.7, 0.85, 1],
     },
   },
 };
