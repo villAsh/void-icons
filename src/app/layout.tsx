@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Hind } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/system/navbar";
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     description:
       "A meticulously crafted collection of animated SVG icons built for modern React and Next.js applications.",
     images: ["/void-icons-home.png"],
-    creator: "@void_icons",
+    creator: "@vilas_dev_x",
   },
   robots: {
     index: true,
@@ -66,6 +66,33 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://void-icons.vercel.app",
   },
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/site.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Void Icons",
+  },
+  formatDetection: {
+    telephone: false,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
